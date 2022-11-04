@@ -1,0 +1,16 @@
+{
+    "name": "rbm_mobile/carrinho_de_compras",
+    "autoload": {
+        "psr-4": {
+            "RbmMobile\\CarrinhoDeCompras\\": "src/",
+            "app\\":"app"
+        }
+    },
+    "authors": [
+        {
+            "name": "João Vitor Pimentel",
+            "email": "joao.pimentel@rbmweb.com.br"
+        }
+    ],
+    "require": {}
+}
