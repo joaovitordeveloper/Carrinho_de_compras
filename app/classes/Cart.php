@@ -4,7 +4,7 @@ namespace app\classes;
 
 use app\interfaces\CartInterface;
 
-class cart implements CartInterface
+class Cart implements CartInterface
 {
     public function add($product)
     {
@@ -21,17 +21,32 @@ class cart implements CartInterface
 
     public function remove($product)
     {
-
+        if(isset($_SESSION['cart'][$product]))
+        {
+            unset($_SESSION['cart'][$product]);//remove o valor de um array
+        }
     }
 
     public function quantity($product, $quantity)
     {
+        if(isset($_SESSION['cart'][$product]))
+        {
+            if($quantity === 0 || $quantity === '')
+            {
+                $this->remove($product);
+                return;
+            }
 
+            $_SESSION['cart'][$product] = $quantity;
+        }
     }
 
     public function clear()
     {
-
+        if(isset($_SESSION['cart']))
+        {
+            unset($_SESSION['cart']);//remove o valor de um array
+        }
     }
     
     public function cart()
